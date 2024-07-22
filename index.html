@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Question</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+
+      #options {
+        margin: 20px 20px 20px 0px;
+        padding: 20px 20px 20px 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+      }
+      .option {
+        width: 700px;
+        display: flex;
+        margin: 5px 0;
+        border: 2px solid transparent;
+        cursor: pointer;
+      }
+
+      .option span {
+        padding: 20px 30px;
+        background-color: rgb(155, 121, 101);
+        color: white;
+      }
+
+      .option p {
+        padding: 20px;
+
+        text-align: start;
+      }
+
+      .correctc {
+        color: white;
+
+        background-color: green;
+      }
+
+      .wrongc {
+        color: white;
+        background-color: red;
+      }
+
+      .container {
+        width: fit-content;
+        padding: 50px;
+        margin: 100px auto;
+        background-color: rgb(226, 218, 214);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="head">
+        <h1>In web design, what does CSS stand for?</h1>
+      </div>
+
+      <div id="options">
+        <button class="option wrong">
+          <span>A</span>
+          <p>Counter Strike Source</p>
+        </button>
+        <button class="option wrong">
+          <span>B</span>
+          <p>Corrective Style Sheet</p>
+        </button>
+        <button class="option wrong">
+          <span>C</span>
+          <p>Computer Style Sheet</p>
+        </button>
+        <button class="option correct">
+          <span>D</span>
+          <p>Cascading Style Sheet</p>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("options")
+        .addEventListener("click", function (e) {
+          if (e.target.closest(".option")) {
+            const button = e.target.closest(".option");
+            if (button.classList.contains("correct")) {
+              button.classList.add("correctc");
+              button.querySelector("span").style.backgroundColor = "green";
+            } else if (button.classList.contains("wrong")) {
+              button.classList.add("wrongc");
+              button.querySelector("span").style.backgroundColor = "red";
+            }
+            button.disabled = true;
+          }
+        });
+    </script>
+  </body>
+</html>
