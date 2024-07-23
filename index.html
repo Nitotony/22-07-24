@@ -94,11 +94,18 @@
             if (button.classList.contains("correct")) {
               button.classList.add("correctc");
               button.querySelector("span").style.backgroundColor = "green";
+
+
             } else if (button.classList.contains("wrong")) {
               button.classList.add("wrongc");
               button.querySelector("span").style.backgroundColor = "red";
             }
-            button.disabled = true;
+
+            let dis=document.getElementsByClassName('option');
+            for(let i=0;i<dis.length;i++){
+              dis[i].disabled=true;
+
+            }
           }
         });
     </script>
